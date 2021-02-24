@@ -11,6 +11,7 @@ require 'open-uri'
 
 puts "Cleaning database"
 Ingredient.destroy_all
+Cocktail.destroy_all
 
 puts "Parsing cocktaildb.com"
 url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
@@ -19,8 +20,14 @@ ingredients = JSON.parse(ingredients_serialized)
 
 puts "Creating ingredients"
 ingredients["drinks"].each do |i|
-  # i_name = ??
+  i_name = i["strIngredient1"]
   Ingredient.create!(name: i_name)
 end
 
 puts "Finished seeding ingredients"
+
+puts "Seeding cocktails"
+Cocktail.create!(name: "Negroni")
+Cocktail.create!(name: "Old Fashioned")
+Cocktail.create!(name: "Gin and Soda")
+puts "Finished seeding cocktails"
