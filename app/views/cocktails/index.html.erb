@@ -7,8 +7,9 @@
         <% else %>
         <img src="https://source.unsplash.com/featured/?<%= cocktail.name %>" />
         <% end %>
-        <div class="card-product-infos">
+        <div class="card-cocktail-infos">
           <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+          <p><%= link_to "Delete", cocktail_path(cocktail), method: :delete %></p>
         </div>
     </div>
   <% end %>
