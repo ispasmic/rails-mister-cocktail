@@ -2,7 +2,11 @@
 <div class="cards">
   <% @cocktails.each do |cocktail| %>
     <div class="card-cocktail">
-      <img src="https://source.unsplash.com/featured/?<%= cocktail.name %>" />
+      <% if cocktail.photo.attached? %>
+        <%= cl_image_tag cocktail.photo.key %>
+        <% else %>
+        <img src="https://source.unsplash.com/featured/?<%= cocktail.name %>" />
+        <% end %>
         <div class="card-product-infos">
           <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
         </div>
