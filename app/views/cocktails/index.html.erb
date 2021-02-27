@@ -1,11 +1,11 @@
 <h1>See all cocktails</h1>
-<% @cocktails.each do |cocktail| %>
-  <div class="card-cocktail">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
-        <p>Product description with <strong>relevant info</strong> only.</p>
-      </div>
-  </div>
-<% end %>
-
+<div class="cards">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card-cocktail">
+      <img src="https://source.unsplash.com/featured/?<%= cocktail.name %>" />
+        <div class="card-product-infos">
+          <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+        </div>
+    </div>
+  <% end %>
+</div>
