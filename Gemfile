@@ -50,3 +50,4 @@ gem 'rails-controller-testing', group: [ :test ]
 
 gem 'faker'
 gem 'simple_form'
+gem 'dotenv-rails', groups: [:development, :test]
